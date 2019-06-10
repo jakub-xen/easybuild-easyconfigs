@@ -1,0 +1,28 @@
+easyblock = 'PythonPackage'
+
+name = 'pygraphviz'
+version = '1.5'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://pygraphviz.github.io/'
+description = """PyGraphviz is a Python interface to the Graphviz graph layout and visualization package. 
+With PyGraphviz you can create, edit, read, write, and draw graphs using Python to access the Graphviz 
+graph data structure and layout algorithms."""
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+
+source_urls = ['https://files.pythonhosted.org/packages/7e/b1/d6d849ddaf6f11036f9980d433f383d4c13d1ebcfc3cd09bc845bda7e433']
+sources = [SOURCE_ZIP]
+checksums = ['50a829a305dc5a0fd1f9590748b19fece756093b581ac91e00c2c27c651d319d']
+
+dependencies = [
+    ('Python', '2.7.15'),
+    ('Graphviz', '2.40.1', versionsuffix),
+]
+
+sanity_check_paths = {
+    'files': [],
+    'dirs': ['lib/python%(pyshortver)s/site-packages'],
+}
+
+moduleclass = 'vis'
