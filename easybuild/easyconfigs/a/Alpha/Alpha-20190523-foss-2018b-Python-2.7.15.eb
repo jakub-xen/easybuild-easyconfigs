@@ -1,0 +1,62 @@
+easyblock = 'Bundle'
+
+name = 'Alpha'
+commit = '5577ec2eb61f'
+version = '20190523'
+versionsuffix = '-Python-%(pyver)s'
+
+homepage = 'http://www.lirmm.fr/~swenson/alpha/alpha.htm'
+description = "Alpha is a tool designed for detailed comparative study of bacteriophage genomes."
+
+toolchain = {'name': 'foss', 'version': '2018b'}
+
+#source_urls = ['https://bitbucket.org/thekswenson/alpha/get/']
+#sources = [{'download_filename': '%s.zme)sip' % commit, 'filename': '%(name)s-%(version)s.zip'}]
+
+dependencies = [
+    ('Python' ,'2.7.15'),
+    ('Biopython', '1.72', versionsuffix),
+    ('Clustal-Omega' ,'1.2.4'),
+    ('GenomeTools', '1.5.10'),
+    ('GTK+', '3.22.30'),
+    ('matplotlib', '2.2.3', versionsuffix),
+    ('networkx', '2.2', versionsuffix),
+    ('PyGObject', '3.30.4', versionsuffix),
+    ('pygraphviz', '1.5', versionsuffix),
+    ('python-igraph', '0.7.1.post6', versionsuffix),
+]
+
+default_easyblock = 'Tarball'
+
+components = [
+    ('pyinclude', '0f8a00b8c10c', {
+        'source_urls': ['https://bitbucket.org/thekswenson/%(namelower)s/get/'],
+        'sources': [{
+            'download_filename': '%(version)s.zip', 
+            'filename': '%(namelower)s-%(version)s.zip',
+            'extract_cmd': "unzip %s && mv thekswenson-%(namelower)s-%(version)s %(namelower)s"
+        }]
+    }),
+    ('Alpha', commit, {
+        'source_urls': ['https://bitbucket.org/thekswenson/%(namelower)s/get/'],
+        'sources': [{
+            'download_filename': '%(version)s.zip', 
+            'filename': '%(namelower)s-%(version)s.zip',
+            'extract_cmd': "unzip %s && mv thekswenson-%(namelower)s-%(version)s %(namelower)s"
+        }]
+    })
+]
+
+postinstallcmds = ['ln -s ${EBROOTGENOMETOOLS}/bin %(installdir)s/%(namelower)s/lib/gtdir']
+
+sanity_check_paths = {
+    'files': ['%(namelower)s/alpha', '%(namelower)s/analyzeblocks', '%(namelower)s/sequencetool'],
+    'dirs': ['pyinclude', '%(namelower)s/data', '%(namelower)s/lib', '%(namelower)s/userdocs'],
+}
+
+modextrapaths = {
+    'PATH': 'alpha',
+    'PYTHONPATH': ['pyinclude','alpha/lib'],
+}
+
+moduleclass = 'bio'
