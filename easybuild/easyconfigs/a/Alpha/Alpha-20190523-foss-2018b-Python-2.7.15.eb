@@ -26,37 +26,44 @@ dependencies = [
     ('python-igraph', '0.7.1.post6', versionsuffix),
 ]
 
-default_easyblock = 'Tarball'
-
 components = [
     ('pyinclude', '0f8a00b8c10c', {
-        'source_urls': ['https://bitbucket.org/thekswenson/%(namelower)s/get/'],
+        'easyblock': 'Tarball',
+        'source_urls': ['https://bitbucket.org/thekswenson/%(name)s/get/'],
         'sources': [{
             'download_filename': '%(version)s.zip', 
-            'filename': '%(namelower)s-%(version)s.zip',
-            'extract_cmd': "unzip %s && mv thekswenson-%(namelower)s-%(version)s %(namelower)s"
-        }]
+            'filename': '%(name)s-%(version)s.zip',
+            'extract_cmd': "unzip %s && mv thekswenson-%(name)s-%(version)s %(name)s"
+        }],
     }),
-    ('Alpha', commit, {
+    (name, commit, {
+        'easyblock': 'Tarball',
         'source_urls': ['https://bitbucket.org/thekswenson/%(namelower)s/get/'],
         'sources': [{
             'download_filename': '%(version)s.zip', 
             'filename': '%(namelower)s-%(version)s.zip',
             'extract_cmd': "unzip %s && mv thekswenson-%(namelower)s-%(version)s %(namelower)s"
-        }]
-    })
+        }],
+    }),
+    ('progressbar', '2.5', {
+        'easyblock': 'PythonPackage',
+        'source_urls': ['https://pypi.python.org/packages/source/p/progressbar'],
+        'sources': ['%(name)s-%(version)s.tar.gz'],
+        'start_dir': '%(name)s-%(version)s',
+    }),
 ]
 
 postinstallcmds = ['ln -s ${EBROOTGENOMETOOLS} %(installdir)s/%(namelower)s/lib/gtdir']
 
 sanity_check_paths = {
     'files': ['%(namelower)s/alpha', '%(namelower)s/analyzeblocks', '%(namelower)s/sequencetool'],
-    'dirs': ['pyinclude', '%(namelower)s/data', '%(namelower)s/lib', '%(namelower)s/userdocs'],
+    'dirs': ['%(namelower)s/data', '%(namelower)s/lib', '%(namelower)s/userdocs', 'pyinclude',
+    'lib/python%(pyshortver)s/site-packages'],
 }
 
 modextrapaths = {
     'PATH': 'alpha',
-    'PYTHONPATH': ['pyinclude','alpha/lib'],
+    'PYTHONPATH': ['pyinclude', 'lib/python%(pyshortver)s/site-packages']
 }
 
 moduleclass = 'bio'
