@@ -47,7 +47,7 @@ components = [
     })
 ]
 
-postinstallcmds = ['ln -s ${EBROOTGENOMETOOLS}/bin %(installdir)s/%(namelower)s/lib/gtdir']
+postinstallcmds = ['ln -s ${EBROOTGENOMETOOLS} %(installdir)s/%(namelower)s/lib/gtdir']
 
 sanity_check_paths = {
     'files': ['%(namelower)s/alpha', '%(namelower)s/analyzeblocks', '%(namelower)s/sequencetool'],
