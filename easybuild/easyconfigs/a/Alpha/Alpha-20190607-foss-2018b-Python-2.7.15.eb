@@ -33,6 +33,7 @@ components = [
             'filename': '%(name)s-%(version)s.zip',
             'extract_cmd': "unzip %s && mv thekswenson-%(name)s-%(version)s %(name)s"
         }],
+        'checksums': ['9dc9b2bafbfe7a694ff4025164dc6e356989ee89b914691457fb0a474fe66c9e'],
     }),
     (name, commit, {
         'easyblock': 'Tarball',
@@ -43,12 +44,17 @@ components = [
             'extract_cmd': "unzip %s && mv thekswenson-%(namelower)s-%(version)s %(namelower)s"
         }],
         'patches': ['%s-%s_fix-email.patch' % (name, version)],
+        'checksums': [
+            'a9a0857ee080864c0d187f1f537aebdb3a61e58dd555b97dffbf2c2d73465f2a', # alpha-e027eb0fea1e.zip
+            'f2ec75c79013462e85898d1943a299d7fa1ee29a8d743d26bda0066ac815d1b6', # Alpha-20190607_fix-email.patch
+        ],
     }),
     # PythonPackage is last to not have its source copied by Tarball blocks
     ('progressbar', '2.5', {
         'easyblock': 'PythonPackage',
         'source_urls': ['https://pypi.python.org/packages/source/p/progressbar'],
         'sources': ['%(name)s-%(version)s.tar.gz'],
+        'checksums': ['5d81cb529da2e223b53962afd6c8ca0f05c6670e40309a7219eacc36af9b6c63'],
         'start_dir': '%(name)s-%(version)s',
     }),
 ]
