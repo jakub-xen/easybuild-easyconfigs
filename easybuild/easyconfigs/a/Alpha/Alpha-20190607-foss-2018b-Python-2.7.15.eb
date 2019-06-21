@@ -1,8 +1,8 @@
 easyblock = 'Bundle'
 
 name = 'Alpha'
-commit = '5577ec2eb61f'
-version = '20190523'
+commit = 'e027eb0fea1e'
+version = '20190607'
 versionsuffix = '-Python-%(pyver)s'
 
 homepage = 'http://www.lirmm.fr/~swenson/alpha/alpha.htm'
@@ -10,12 +10,10 @@ description = "Alpha is a tool designed for detailed comparative study of bacter
 
 toolchain = {'name': 'foss', 'version': '2018b'}
 
-#source_urls = ['https://bitbucket.org/thekswenson/alpha/get/']
-#sources = [{'download_filename': '%s.zme)sip' % commit, 'filename': '%(name)s-%(version)s.zip'}]
-
 dependencies = [
     ('Python' ,'2.7.15'),
     ('Biopython', '1.72', versionsuffix),
+    ('BLAST+', '2.8.1'),
     ('Clustal-Omega' ,'1.2.4'),
     ('GenomeTools', '1.5.10'),
     ('GTK+', '3.22.30'),
@@ -44,7 +42,9 @@ components = [
             'filename': '%(namelower)s-%(version)s.zip',
             'extract_cmd': "unzip %s && mv thekswenson-%(namelower)s-%(version)s %(namelower)s"
         }],
+        'patches': ['%s-%s_fix-email.patch' % (name, version)],
     }),
+    # PythonPackage is last to not have its source copied by Tarball blocks
     ('progressbar', '2.5', {
         'easyblock': 'PythonPackage',
         'source_urls': ['https://pypi.python.org/packages/source/p/progressbar'],
