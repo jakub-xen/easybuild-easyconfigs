@@ -21,7 +21,7 @@ sources = [{
 }]
 patches = [
     'Graphviz-2.40.1_Qt5.patch',
-    'Graphviz-2.40.1_skip-install-data-hook-tclpkg.patch',
+    'Graphviz-2.40.1_skip-install-data-hook.patch',
     'Graphviz-2.40.1_coverity-scan-fixes.patch',
     'Graphviz-2.40.1_CVE-2018-10196.patch',
     'Graphviz-2.40.1_CVE-2019-11023.patch',
@@ -29,8 +29,7 @@ patches = [
 checksums = [
     'e6c3f8dbfde1c4523055403927bef29f97f9fc12715c1042b5dcf648a2c1c62a',  # Graphviz-2.40.1.tar.gz
     'f88ef7bcdb7cdfa2cda89c4681db3fecfb0e37955d52c0d4ef5bcffe5b41eb55',  # Graphviz-2.40.1_Qt5.patch
-    # Graphviz-2.40.1_skip-install-data-hook-tclpkg.patch
-    'ad90f3066932608311b3bbddd5105c9365e6dcd2c42266e71ef4b67c5fc98717',
+    'ad90f3066932608311b3bbddd5105c9365e6dcd2c42266e71ef4b67c5fc98717',  # Graphviz-2.40.1_skip-install-data-hook.patch
     'a0cbd4b1b94fffd5c4e18694d8e31686f0ed7566c66e8ebb159e06bc4045a331',  # Graphviz-2.40.1_coverity-scan-fixes.patch
     'a04eb55b76ee8aa8e42fd415b00fd26e30c35c745d1d0b7fe5a449dc59e70d56',  # Graphviz-2.40.1_CVE-2018-10196.patch
     'd81bb79cd081eba7a8def07e9aa2be968d572309f24921b87bfea8b2b0491127',  # Graphviz-2.40.1_CVE-2019-11023.patch
@@ -40,6 +39,7 @@ builddependencies = [
     ('pkg-config', '0.29.2'),
     ('Autotools', '20180311'),
     ('flex', '2.6.4'),
+    ('libtool', '2.4.6'),
     ('SWIG', '3.0.12', versionsuffix),
 ]
 
@@ -48,7 +48,7 @@ dependencies = [
     ('FriBidi', '1.0.5'),
     ('Gdk-Pixbuf', '2.36.12'),
     ('GTS', '0.7.6'),
-    ('Java', '1.8.0_181', '', True),
+    ('Java', '1.8', '', True),
     ('libgd', '2.2.5'),
     ('Pango', '1.42.4'),
     ('Perl', '5.28.0'),
@@ -58,13 +58,21 @@ dependencies = [
     ('zlib', '1.2.11'),
 ]
 
-preconfigopts = './autogen.sh && '
+preconfigopts = './autogen.sh NOCONFIG && '
  
 configopts = '--enable-python27=yes '
 configopts += '--enable-guile=no --enable-lua=no --enable-ocaml=no '
 configopts += '--enable-r=no --enable-ruby=no --enable-php=no '
+# Use ltdl from libtool in EB
+configopts += '--enable-ltdl --without-included-ltdl --disable-ltdl-install '
+configopts += '--with-ltdl-include=$EBROOTLIBTOOL/include --with-ltdl-lib=$EBROOTLIBTOOL/lib '
+# Override the hardcoded paths to Java libraries
+configopts += '--with-javaincludedir=$JAVA_HOME/include --with-javaincludedir=$JAVA_HOME/include/linux '
+configopts += '--with-javalibdir=$JAVA_HOME/lib'
 
 prebuildopts = 'qmake -o cmd/gvedit/qMakefile cmd/gvedit/gvedit.pro && '
+
+postinstallcmds = ['%(installdir)s/bin/dot -c'] # Writes plugin configuration
 
 sanity_check_paths = {
     'files': ['bin/cluster', 'bin/dot', 'bin/gvmap',
