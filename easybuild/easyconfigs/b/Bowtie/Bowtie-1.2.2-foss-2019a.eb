@@ -1,0 +1,24 @@
+name = 'Bowtie'
+version = '1.2.2'
+
+homepage = 'http://bowtie-bio.sourceforge.net/index.shtml'
+description = """Bowtie is an ultrafast, memory-efficient short read aligner.
+ It aligns short DNA sequences (reads) to the human genome."""
+
+toolchain = {'name': 'foss', 'version': '2019a'}
+toolchainopts = {'pic': True, 'cstd': 'gnu++98'}
+
+source_urls = ['http://download.sourceforge.net/bowtie-bio/']
+sources = ['%(namelower)s-%(version)s-src.zip']
+patches = ['Bowtie-1.2.2_fix-isa-return-type.patch']
+checksums = [
+    '806d618d073107e75dec6c3a61fc9ce4a1eb91657e75cb1bfa9ca2bf926482ca',  # bowtie-1.2.2-src.zip
+    '2472561ac8a81e074be7f437ef94b94780a65da3cc08a52e58f44b01ddba0f32',  # Bowtie-1.2.2_fix-isa-return-type.patch
+]
+
+dependencies = [
+    ('tbb', '2019_U4'),
+    ('zlib', '1.2.11'),
+]
+
+moduleclass = 'bio'
