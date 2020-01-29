@@ -27,7 +27,7 @@ buildopts = 'useshared=no errorcheck=no cairo=yes'
 installopts = 'prefix=%(installdir)s'
 
 sanity_check_paths = {
-    'files': ['bin/gt', 'lib/libgenometools.a', 'lib/libgenometools.%s' % SHLIB_EXT],
+    'files': ['bin/gt', 'bin/genometools-config', 'lib/libgenometools.a', 'lib/libgenometools.%s' % SHLIB_EXT],
     'dirs': ['include', 'share'],
 }
 
