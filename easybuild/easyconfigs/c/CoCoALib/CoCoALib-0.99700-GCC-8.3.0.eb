@@ -6,16 +6,17 @@ version = '0.99700'
 homepage = 'http://cocoa.dima.unige.it/cocoalib '
 description = "CoCoALib is a free GPL3 C++ library for doing Computations in Commutative Algebra."
 
-toolchain = {'name': 'GCCcore', 'version': '8.3.0'}
+toolchain = {'name': 'GCC', 'version': '8.3.0'}
 
 source_urls = ['http://cocoa.dima.unige.it/cocoalib/tgz']
 sources = [SOURCE_TGZ]
+checksums = ['e9de0f4859946c8882414fc9f3756d5995961b0fcf6b477ac8e27636b41ca002']
 
 builddependencies = [('Autotools', '20180311')]
 
 dependencies = [
-    ('cddlib', '0.94j'),
     ('GMP', '6.1.2'),
+    ('cddlib', '0.94j'),  # optional
 ]
 
 # Boost and libreadline only needed for CoCoA-5
