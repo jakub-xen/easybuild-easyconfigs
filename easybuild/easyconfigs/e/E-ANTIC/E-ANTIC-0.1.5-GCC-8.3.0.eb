@@ -5,9 +5,9 @@ version = '0.1.5'
 
 homepage = 'https://github.com/videlec/e-antic'
 
-description = """E-ANTIC is a C/C++ library to deal with real embedded number
-fields built on top of ANTIC (https://github.com/wbhart/antic). Its aim is to
-have as fast as possible exact arithmetic operations and comparisons."""
+description = """E-ANTIC is a C/C++ library to deal with real embedded number fields built on
+top of ANTIC (https://github.com/wbhart/antic). Its aim is to have as fast as
+possible exact arithmetic operations and comparisons."""
 
 toolchain = {'name': 'GCC', 'version': '8.3.0'}
 
