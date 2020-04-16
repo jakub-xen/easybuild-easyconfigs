@@ -7,6 +7,7 @@ homepage = 'https://github.com/cddlib/cddlib'
 description = "An efficient implementation of the Double Description Method"
 
 toolchain = {'name': 'GCCcore', 'version': '8.3.0'}
+toolchainopts = {'pic': True}
 
 github_account = 'cddlib'
 source_urls = [GITHUB_SOURCE]
