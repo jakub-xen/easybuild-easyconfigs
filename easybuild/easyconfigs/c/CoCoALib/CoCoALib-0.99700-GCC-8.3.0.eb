@@ -7,6 +7,7 @@ homepage = 'http://cocoa.dima.unige.it/cocoalib '
 description = "CoCoALib is a free GPL3 C++ library for doing Computations in Commutative Algebra."
 
 toolchain = {'name': 'GCC', 'version': '8.3.0'}
+toolchainopts = {'pic': True}
 
 source_urls = ['http://cocoa.dima.unige.it/cocoalib/tgz']
 sources = [SOURCE_TGZ]
