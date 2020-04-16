@@ -31,12 +31,13 @@ runtest = "checks"
 
 files_to_copy = [
     (local_executables, "bin"),
-    (local_headers, "include"),
+    (local_headers, "include/%(name)s"),
     (local_libs, "lib"),
 ]
 
 sanity_check_paths = {
-    'files': ['bin/%s' % x for x in local_executables] + ['include/%s' % h for h in local_headers] +
+    'files': ['bin/%s' % x for x in local_executables] +
+             ['include/%%(name)s/%s' % h for h in local_headers] +
              ['lib/%s' % l for l in local_libs],
     'dirs': ['']
 }
