@@ -3,7 +3,7 @@ easyblock = 'ConfigureMake'
 name = 'FLINT'
 version = '2.5.2'
 
-homepage = 'http://www.%(namelower)slib.org'
+homepage = 'http://www.flintlib.org/'
 
 description = """FLINT (Fast Library for Number Theory) is a C library in support of computations
  in number theory. Operations that can be performed include conversions, arithmetic, computing GCDs,
@@ -11,8 +11,9 @@ description = """FLINT (Fast Library for Number Theory) is a C library in suppor
  various low-level routines for fast arithmetic. FLINT is extensively documented and tested."""
 
 toolchain = {'name': 'GCC', 'version': '8.3.0'}
+toolchainopts = {'pic': True}
 
-source_urls = ['http://www.%(namelower)slib.org']
+source_urls = ['http://www.flintlib.org']
 sources = [SOURCELOWER_TAR_GZ]
 checksums = ['cbf1fe0034533c53c5c41761017065f85207a1b770483e98b2392315f6575e87']
 
