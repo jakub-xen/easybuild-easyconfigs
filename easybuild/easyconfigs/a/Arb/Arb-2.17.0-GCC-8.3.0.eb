@@ -10,6 +10,7 @@ description = """Arb is a C library for arbitrary-precision interval arithmetic.
  portable, and extensively tested."""
 
 toolchain = {'name': 'GCC', 'version': '8.3.0'}
+toolchainopts = {'pic': True}
 
 github_account = 'fredrik-johansson'
 source_urls = [GITHUB_LOWER_SOURCE]
