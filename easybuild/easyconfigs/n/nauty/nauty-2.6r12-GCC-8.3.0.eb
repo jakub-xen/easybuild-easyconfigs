@@ -21,10 +21,10 @@ local_executables = [
     'NRswitchg', 'pickg', 'planarg', 'ranlabg', 'shortg', 'showg', 'subdivideg', 'twohamg', 'vcolg', 'watercluster2'
 ]
 local_headers = [
-    'gtools.h', 'naugstrings.h', 'nausparse.h', 'nautinv.h', 'nauty.h', 'quarticirred28.h', 'schreier.h', 'gutils.h',
-    'naugroup.h', 'naurng.h', 'nautaux.h', 'naututil.h', 'planarity.h', 'rng.h', 'traces.h'
+    'gtools.h', 'gutils.h', 'naugroup.h', 'naugstrings.h', 'naurng.h', 'nausparse.h', 'nautaux.h', 'nautinv.h',
+    'naututil.h', 'nauty.h', 'planarity.h', 'quarticirred28.h', 'rng.h', 'schreier.h', 'traces.h'
 ]
-local_libs = ['nauty%s.a' % l for l in ['', 'L', 'L1', 'W', 'W1']]
+local_libs = ['nauty%s.a' % l for l in ['', '1', 'L', 'L1', 'W', 'W1']]
 
 prebuildopts = "./configure && "
 
