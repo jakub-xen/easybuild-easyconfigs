@@ -10,6 +10,7 @@ top of ANTIC (https://github.com/wbhart/antic). Its aim is to have as fast as
 possible exact arithmetic operations and comparisons."""
 
 toolchain = {'name': 'GCC', 'version': '8.3.0'}
+toolchainopts = {'pic': True}
 
 github_account = 'videlec'
 source_urls = [GITHUB_LOWER_SOURCE]
