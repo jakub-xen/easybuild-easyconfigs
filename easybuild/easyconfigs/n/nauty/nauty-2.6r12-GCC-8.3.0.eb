@@ -35,10 +35,13 @@ files_to_copy = [
     (local_libs, "lib"),
 ]
 
+# prepend "lib" to library files to standarize their name
+postinstallcmds = ["cd %%(installdir)s/lib/ && mv %s lib%s" % (l, l) for l in local_libs]
+
 sanity_check_paths = {
     'files': ['bin/%s' % x for x in local_executables] +
              ['include/%%(name)s/%s' % h for h in local_headers] +
-             ['lib/%s' % l for l in local_libs],
+             ['lib/lib%s' % l for l in local_libs],
     'dirs': ['']
 }
 
