@@ -8,6 +8,7 @@ description = """nauty and Traces are programs for computing automorphism groups
 digraphs. They can also produce a canonical label."""
 
 toolchain = {'name': 'GCC', 'version': '8.3.0'}
+toolchainopts = {'pic': True}
 
 source_urls = ['http://pallini.di.uniroma1.it']
 sources = ['nauty%s.tar.gz' % version.replace('.', '')]
