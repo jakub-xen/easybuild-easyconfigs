@@ -26,7 +26,7 @@ dependencies = [
     ('FLINT', '2.5.2'),
     ('Arb', '2.17.0'),
     ('E-ANTIC', '0.1.5'),
-    ('nauty', '2.6r12'),
+    ('nauty', '2.7rc5'),
 ]
 
 preconfigopts = "autoreconf -f -i && "
