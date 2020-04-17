@@ -26,8 +26,7 @@ local_headers = [
 ]
 local_libs = ['nauty%s.a' % l for l in ['', '1', 'L', 'L1', 'W', 'W1']]
 
-# Configure and enable thread-local variables
-prebuildopts = "./configure --enable-tls && "
+prebuildopts = "./configure && "
 
 runtest = "checks"
 
