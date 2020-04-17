@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 # Boost and libreadline only needed for CoCoA-5
-configopts = "--no-boost --no-readline "
+configopts = "--no-boost --no-readline --threadsafe-hack "
 # Use cddlib from EB
 configopts += "--with-libcddgmp=${EBROOTCDDLIB}/lib/libcddgmp.a "
 
