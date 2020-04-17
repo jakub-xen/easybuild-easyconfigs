@@ -15,6 +15,7 @@ toolchainopts = {'pic': True, 'openmp': True}
 github_account = 'Normaliz'
 source_urls = [GITHUB_SOURCE]
 sources = ['v%(version)s.tar.gz']
+checksums = ['4aa76a4b367dc37c808e4e376ed5e875f5ad2c211a948c101e8b02a485fb4915']
 
 builddependencies = [
     ('Autotools', '20180311'),
