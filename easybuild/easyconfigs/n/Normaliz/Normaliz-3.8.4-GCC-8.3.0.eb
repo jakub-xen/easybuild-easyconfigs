@@ -35,6 +35,8 @@ preconfigopts = "autoreconf -f -i && "
 configopts = "--with-gmp=$EBROOTGMP --with-cocoalib=$EBROOTCOCOALIB --with-flint=$EBROOTFLINT "
 configopts += "--with-e-antic=$EBROOTEMINANTIC --with-nauty=$EBROOTNAUTY"
 
+runtest = 'check'
+
 sanity_check_paths = {
     'files': ['bin/normaliz'] + ['lib/libnormaliz.%s' % e for e in ['a', SHLIB_EXT]],
     'dirs': ['include/libnormaliz']
