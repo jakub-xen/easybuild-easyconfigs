@@ -19,6 +19,7 @@ dependencies = [
     ('SciPy-bundle', '2019.10', versionsuffix),
     ('protobuf-python', '3.10.0', versionsuffix),
     ('PyYAML', '5.1.2'),
+    ('dm-tree', '0.1.1'),
 ]
 
 use_pip = True
