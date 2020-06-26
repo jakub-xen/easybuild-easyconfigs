@@ -28,7 +28,7 @@ dependencies = [
 ]
 
 # Download and install the referende database (1.8 GB)
-postinstallcmds = ["cd %(installdir)s && ./arcasHLA reference --update --verbose"]
+postinstallcmds = ["cd %(installdir)s && git lfs install && ./arcasHLA reference --update --verbose"]
 
 sanity_check_paths = {
     'files': ['arcasHLA'],
