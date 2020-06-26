@@ -27,9 +27,12 @@ dependencies = [
     ('git-lfs', '2.11.0', '', True),
 ]
 
+# Download and install the referende database (1.8 GB)
+postinstallcmds = ["cd %(installdir)s && ./arcasHLA reference --update --verbose"]
+
 sanity_check_paths = {
     'files': ['arcasHLA'],
-    'dirs': ['dat', 'scripts', 'test'],
+    'dirs': ['dat', 'dat/IMGTHLA', 'scripts', 'test'],
 }
 
 sanity_check_commands = ['arcasHLA --help']
