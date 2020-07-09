@@ -1,3 +1,5 @@
+Use the absolute path of dataDir provided by the system
+author: Alex Domingo (Vrije Universiteit Brussel)
 --- lib/include/portcullis/portcullis_fs.hpp.orig	2020-07-07 10:15:46.026229000 +0200
 +++ lib/include/portcullis/portcullis_fs.hpp	2020-07-07 10:18:06.614475000 +0200
 @@ -130,13 +130,7 @@

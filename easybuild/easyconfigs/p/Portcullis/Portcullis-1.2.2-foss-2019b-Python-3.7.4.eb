@@ -40,7 +40,7 @@ default_component_specs = {
     'sources': ['%(version)s.tar.gz'],
     'checksums': [
         'b5788bd257dfabd454716e3425136f9350c0eb3654d4768db0ea21b45a1479ef',  # 1.2.2.tar.gz
-        '84ea297415ff271b19dee277d029b03c2d3cbc5fb43c9327f61ec5c60c297342',  # Portcullis-1.2.2_fix-datadir-path.patch
+        'ad318978e2cba236b1e19fee8318c81499a874a4d714a314f5072742ca12cfaa',  # Portcullis-1.2.2_fix-datadir-path.patch
     ]
 }
 
